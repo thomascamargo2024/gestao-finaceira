@@ -6,7 +6,7 @@ Aplicação web para gerenciamento de finanças pessoais, permitindo registrar e
 
 ## 📸 Demonstração
 
-![Demonstração do projeto]([gestao-financeiro.png](https://github.com/thomascamargo2024/gestao-finaceira/blob/master/imagens/gestao-financeiro.png))
+![Demonstração do projeto](https://github.com/thomascamargo2024/gestao-finaceira/blob/master/imagens/gestao-financeiro.png)
 
 ---
 
@@ -41,4 +41,4 @@ Interface adaptada para:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/thomascamargo2024/gestao-finaceira.git
