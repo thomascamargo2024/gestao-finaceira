@@ -6,7 +6,7 @@ Aplicação web para gerenciamento de finanças pessoais, permitindo registrar e
 
 ## 📸 Demonstração
 
-![Demonstração do projeto](imagens/app-getao.PNG)
+![Demonstração do projeto](gestao-financeiro.png)
 
 ---
 
