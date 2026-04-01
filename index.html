@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header id="header-saldos">
+            <div class="saldo">
+                <div class="imagem-carteira">
+                    <img src="imagens/icons8-wallet-50.png" alt="">
+                </div>
+                <div class="div-saldo">
+                    <p class="saldo-total">Saldo Total</p>
+                    <p class="saldo-atual">
+                        R$ 0
+                    </p>
+                </div>
+            </div>
+            <div class="saldo">
+                <div class="imagem-seta-entrada">
+                    <img src="imagens/icons8-arrow-48 (1).png" alt="">
+                </div>
+                <div class="saldo-entrada">
+                    <p class="texto-entradas">Entradas</p>
+                    <p class="saldo-atual-entrada">
+                        R$ 0
+                    </p>
+                </div>
+            </div>
+            <div class="saldo">
+                <div class="imagem-seta-saida">
+                    <img src="imagens/icons8-arrow-48 (2).png" alt="">
+                </div>
+                <div class="saldo-saida">
+                    <p class="texto-saida">Saidas</p>
+                    <p class="saldo-atual-saida">
+                        R$ 0
+                    </p>
+                </div>
+            </div>
+            <p class="transacao">Transações</p>
+        </header>
+        <section class="historico">
+            <p class="transacoes">
+                Transações
+            </p>
+        </section>
+        <footer>
+            <div class="inputs">
+                <input type="text" id="input-nome" placeholder="Nome">
+                <input type="text" name="" id="valor-transacao" placeholder="Valor">
+                <select name="" id="caixa-select">
+                    <option value="entrada" id="options">
+                        Tipo Entrada
+                    </option>
+                    <option value="saida" id="options">
+                        Tipo saída
+                    </option>
+                </select>
+            </div>
+            <div class="botao-adicionar">
+                <button class="botao">
+                    + Adicionar
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
