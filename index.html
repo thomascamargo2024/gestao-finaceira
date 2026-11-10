@@ -1,75 +1,168 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Controle Financeiro</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
-    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <header id="header-saldos">
-            <div class="saldo">
-                <div class="imagem-carteira">
-                    <img src="imagens/icons8-wallet-50.png" alt="">
+
+<div class="container">
+
+    <header class="topo">
+        <div>
+            <h1>Meu Financeiro</h1>
+            <p>Controle suas finanças com facilidade.</p>
+        </div>
+    </header>
+
+    <nav class="navegacao">
+        <button class="aba ativa" data-aba="resumo">Resumo</button>
+        <button class="aba" data-aba="historico">Histórico</button>
+        <button class="aba" data-aba="graficos">Gráficos</button>
+    </nav>
+
+    <main>
+
+        <!-- RESUMO -->
+        <section id="resumo" class="conteudo ativo">
+
+            <div class="titulo-secao">
+                <h2>Resumo do mês</h2>
+                <input type="month" id="mes-referencia">
+            </div>
+
+            <div class="cards-saldo">
+
+                <div class="card">
+                    <span>Saldo do mês</span>
+                    <h2 id="saldo-mensal">R$ 0,00</h2>
                 </div>
-                <div class="div-saldo">
-                    <p class="saldo-total">Saldo Total</p>
-                    <p class="saldo-atual">
-                        R$ 0
-                    </p>
+
+                <div class="card">
+                    <span>Entradas</span>
+                    <h2 id="entrada-mensal" class="positivo">R$ 0,00</h2>
+                </div>
+
+                <div class="card">
+                    <span>Saídas</span>
+                    <h2 id="saida-mensal" class="negativo">R$ 0,00</h2>
+                </div>
+
+            </div>
+
+            <div class="painel">
+                <h3>Adicionar movimentação</h3>
+
+                <div class="formulario">
+
+                    <input type="text" id="input-nome"
+                        placeholder="Nome da movimentação">
+
+                    <input type="text" id="valor-transacao"
+                        placeholder="Valor (ex: 150,00)"
+                        inputmode="decimal">
+
+                    <select id="caixa-select">
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+
+                    <select id="categoria">
+                        <option value="Salário">Salário</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Contas">Contas</option>
+                        <option value="Investimentos">Investimentos</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+
+                    <input type="date" id="data-transacao">
+
+                    <button class="botao" id="botao-adicionar">
+                        + Adicionar
+                    </button>
+
                 </div>
             </div>
-            <div class="saldo">
-                <div class="imagem-seta-entrada">
-                    <img src="imagens/icons8-arrow-48 (1).png" alt="">
-                </div>
-                <div class="saldo-entrada">
-                    <p class="texto-entradas">Entradas</p>
-                    <p class="saldo-atual-entrada">
-                        R$ 0
-                    </p>
-                </div>
-            </div>
-            <div class="saldo">
-                <div class="imagem-seta-saida">
-                    <img src="imagens/icons8-arrow-48 (2).png" alt="">
-                </div>
-                <div class="saldo-saida">
-                    <p class="texto-saida">Saidas</p>
-                    <p class="saldo-atual-saida">
-                        R$ 0
-                    </p>
-                </div>
-            </div>
-            <p class="transacao">Transações</p>
-        </header>
-        <section class="historico">
-            <p class="transacoes">
-                Transações
-            </p>
-        </section>
-        <footer>
-            <div class="inputs">
-                <input type="text" id="input-nome" placeholder="Nome">
-                <input type="text" name="" id="valor-transacao" placeholder="Valor">
-                <select name="" id="caixa-select">
-                    <option value="entrada" id="options">
-                        Tipo Entrada
-                    </option>
-                    <option value="saida" id="options">
-                        Tipo saída
-                    </option>
-                </select>
-            </div>
-            <div class="botao-adicionar">
-                <button class="botao">
-                    + Adicionar
+
+            <div class="painel">
+                <h3>Movimentações recentes</h3>
+                <div id="transacoes-recentes"></div>
+                <button class="botao-secundario" data-ir="historico">
+                    Ver histórico completo
                 </button>
             </div>
-        </footer>
-    </div>
-    <script src="script.js"></script>
+
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section id="historico" class="conteudo">
+
+            <div class="titulo-secao">
+                <h2>Histórico de movimentações</h2>
+            </div>
+
+            <div class="filtros">
+                <input type="month" id="filtro-mes">
+
+                <select id="filtro-tipo">
+                    <option value="todos">Todas as movimentações</option>
+                    <option value="entrada">Entradas</option>
+                    <option value="saida">Saídas</option>
+                </select>
+
+                <input type="text" id="filtro-busca"
+                    placeholder="Pesquisar movimentação">
+            </div>
+
+            <div id="lista-historico"></div>
+
+        </section>
+
+        <!-- GRÁFICOS -->
+        <section id="graficos" class="conteudo">
+
+            <div class="titulo-secao">
+                <h2>Gráficos financeiros</h2>
+            </div>
+
+            <div class="painel">
+                <h3>Entradas x Saídas</h3>
+                <div id="grafico-comparacao" class="grafico-barras"></div>
+            </div>
+
+            <div class="painel">
+                <h3>Evolução financeira</h3>
+                <p class="descricao">Últimos seis meses</p>
+                <div id="grafico-evolucao" class="grafico-evolucao"></div>
+            </div>
+
+            <div class="painel">
+                <h3>Distribuição das despesas</h3>
+                <div class="categorias-grafico">
+                    <div id="grafico-categorias" class="grafico-rosca"></div>
+                    <div id="legenda-categorias" class="legenda"></div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Meu Financeiro © 2026</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

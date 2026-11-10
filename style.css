@@ -1,149 +1,373 @@
+
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 body {
     background-color: rgb(16, 16, 56);
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    gap: 40px;
-}
-
-.saldo {
-    background-color: rgb(34, 34, 59);
-    width: 220px;
-    height: 70px;
-    border-radius: 5px;
-
-    display: flex;
-    flex-direction: row;
     color: white;
-    padding: 10px;
-    gap: 10px;
-    font-size: 12px;
-    line-height: 20px;
-    align-items: center;
-}
-
-.saldo-atual-saida,
-.saldo-atual-entrada,
-.saldo-atual {
-    font-size: 20px;
-}
-
-.saldo-atual-entrada {
-    color: green;
-}
-
-.saldo-atual-saida {
-    color: rgb(243, 4, 4);
-}
-
-input {
-    padding: 8px;
-    padding-left: 8px;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid rgba(255, 255, 255, 0.322);
-    background-color: rgb(16, 16, 56);
-    color: white;
-}
-
-select {
-    width: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.322);
-    background-color: rgb(16, 16, 56);
-    color: white;
-    padding: 7px;
-    border-radius: 5px;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.botao {
-    padding: 8px;
-    width: 200px;
-    font-weight: bold;
-    background-color: rgb(62, 106, 230);
-    outline: none;
-    border: none;
-    color: white;
-    border-radius: 5px;
-}
-
-.botao:hover {
-    background-color: rgb(71, 118, 247);
-    cursor: pointer;
-}
-
-p {
-    color: rgb(255, 255, 255);
-}
-
-img {
-    width: 35px;
-}
-
-#header-saldos {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-
-
-
-
-.item {
-    width: 90vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(34, 34, 59);
-    color: white;
-    padding: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-}
-
-.nome {
-    color: white;
-    font-size: 16px;
-    padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.valor {
-    flex: 1;
-    text-align: center;
-    color: green;
-    font-weight: bold;
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
 }
 
-.valor-negativo {
-    color: red;
-    font-weight: bold;
+.topo {
+    margin-bottom: 30px;
 }
 
-.excluir {
+.topo h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.topo p,
+.descricao {
+    color: #aaaabd;
+    font-size: 13px;
+}
+
+.navegacao {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 30px;
+}
+
+.aba {
+    padding: 12px 25px;
+    background: transparent;
+    border: none;
+    color: #aaaabd;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.aba.ativa {
+    color: white;
+    border-bottom: 3px solid rgb(62, 106, 230);
+}
+
+.conteudo {
+    display: none;
+}
+
+.conteudo.ativo {
+    display: block;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.titulo-secao h2 {
+    font-size: 22px;
+}
+
+input,
+select {
+    background: rgb(16, 16, 56);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 11px;
+    border-radius: 5px;
+    outline: none;
+    min-width: 0;
+}
+
+input:focus,
+select:focus {
+    border-color: rgb(62, 106, 230);
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
     cursor: pointer;
 }
 
-.imagem-excluir {
-    width: 25px;
+.cards-saldo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgb(34, 34, 59);
+    padding: 22px;
+    border-radius: 8px;
+    min-height: 110px;
+}
+
+.card span {
+    font-size: 13px;
+    color: #aaaabd;
+}
+
+.card h2 {
+    font-size: 22px;
+    margin-top: 15px;
+    overflow-wrap: anywhere;
+}
+
+.positivo {
+    color: #22c55e;
+}
+
+.negativo {
+    color: #ef4444;
+}
+
+.painel {
+    background: rgb(34, 34, 59);
+    border-radius: 8px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.painel h3 {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.botao {
+    background: rgb(62, 106, 230);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.botao:hover {
+    background: rgb(71, 118, 247);
+}
+
+.botao-secundario {
+    background: transparent;
+    border: 1px solid rgb(62, 106, 230);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.transacao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.transacao-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.transacao-info strong {
+    display: block;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.transacao-info small {
+    display: block;
+    color: #aaaabd;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.transacao-valor {
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.transacao-valor.entrada {
+    color: #22c55e;
+}
+
+.transacao-valor.saida {
+    color: #ef4444;
+}
+
+.excluir {
+    border: none;
+    background: transparent;
+    color: #ef4444;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.filtros {
+    display: grid;
+    grid-template-columns: 180px 220px 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.vazio {
+    text-align: center;
+    color: #aaaabd;
+    padding: 25px 10px;
+}
+
+.grafico-barras {
+    display: grid;
+    gap: 20px;
+}
+
+.barra-item {
+    display: grid;
+    gap: 8px;
+}
+
+.barra-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.barra-fundo {
+    height: 14px;
+    background: rgb(16, 16, 56);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    height: 100%;
+    border-radius: 20px;
+    transition: width .3s;
+}
+
+.barra-preenchimento.entrada {
+    background: #22c55e;
+}
+
+.barra-preenchimento.saida {
+    background: #ef4444;
+}
+
+.grafico-evolucao {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 230px;
+    padding-top: 20px;
+    overflow-x: auto;
+}
+
+.mes-coluna {
+    flex: 1;
+    min-width: 65px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.mes-barras {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+    height: 175px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.mes-barra {
+    width: 20px;
+    max-width: 40%;
+    min-height: 2px;
+    border-radius: 4px 4px 0 0;
+}
+
+.mes-barra.entrada {
+    background: #22c55e;
+}
+
+.mes-barra.saida {
+    background: #ef4444;
+}
+
+.mes-coluna small {
+    color: #aaaabd;
+    font-size: 11px;
+}
+
+.categorias-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.grafico-rosca {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgb(16, 16, 56);
+    position: relative;
+}
+
+.grafico-rosca::after {
+    content: "";
+    position: absolute;
+    inset: 48px;
+    background: rgb(34, 34, 59);
+    border-radius: 50%;
+}
+
+.legenda {
+    display: grid;
+    gap: 12px;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+}
+
+.legenda-cor {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+footer {
+    text-align: center;
+    color: #aaaabd;
+    font-size: 12px;
+    padding: 30px;
 }
